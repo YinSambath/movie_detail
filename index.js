@@ -15,6 +15,7 @@ const connectDB = require('./config/db.js')
 connectDB()
 
 const indexRouter = require('./routes/index')
+const movieDetailRouter = require('./routes/movieDetail')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -23,9 +24,10 @@ app.set('layout', 'layouts/layout')
 
 
 app.use(express.static('public'))
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))
 
+//localhost3000
 app.use('/', indexRouter)
+app.use('/movie-detail', movieDetailRouter)
 
 const PORT = process.env.PORT || 3000
 
