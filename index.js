@@ -8,7 +8,7 @@ const mongoose = require('mongoose')
 const colors = require('colors')
 
 
-dotenv.config()
+require('dotenv').config();
 
 const connectDB = require('./config/db.js')
 
@@ -31,4 +31,8 @@ app.use('/movie-detail', movieDetailRouter)
 
 const PORT = process.env.PORT || 3000
 
+const mode = process.env.NODE_ENV
+
 app.listen(PORT, console.log( `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold))
+
+
